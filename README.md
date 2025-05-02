@@ -39,6 +39,3 @@ The robot should begin navigating the environment using the Bug2 algorithm.
 - The robot and world are kept minimal to emphasize algorithm behavior.
 - All logic is contained in `robot.py`.
 
-## License
-
-This project is provided for educational and research purposes.

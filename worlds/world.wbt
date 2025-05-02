@@ -1,0 +1,503 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/animals/protos/Dog.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.03995102008432997 0.9939258590194435 0.10254415032893356 0.9841350577127704
+  position -6.9991058350888995 -0.423730281753415 10.115721952627009
+}
+TexturedBackground {
+  texture "dusk"
+}
+TexturedBackgroundLight {
+  texture "dusk"
+}
+RectangleArena {
+  floorSize 7 7
+  floorTileSize 2.3 2.3
+  floorAppearance Parquetry {
+    type "dark strip"
+  }
+}
+DEF prekazka Solid {
+  translation -0.280475 -1.00582 0
+  rotation 0 0 1 -0.523595307179586
+  children [
+    DEF obstruct Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        transparency 0.8
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 3.6 0.7 0.7
+      }
+    }
+  ]
+  boundingObject USE obstruct
+}
+DEF prekazka Solid {
+  translation 0.0379447 0.865718 0
+  rotation 0 0 1 1.0472
+  children [
+    DEF obstruct Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        transparency 0.8
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 3.6 0.7 0.7
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE obstruct
+}
+Robot {
+  translation -2.33 -2.35 0.09
+  children [
+    DEF base_ Solid {
+      children [
+        DEF kompas Solid {
+          translation 0.03 0 0.04
+          children [
+            Compass {
+            }
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.03 0.05 0.01
+              }
+            }
+          ]
+          name "solid(11)"
+        }
+        DEF ultrazvukF Solid {
+          translation 0.31 0 0
+          children [
+            DEF distF Lidar {
+              name "distF"
+              fieldOfView 0.4
+              verticalFieldOfView 0.1
+              numberOfLayers 1
+            }
+            Solid {
+              translation 0.02 0 -2.03924e-08
+              rotation 0 1 0 -1.5707953071795862
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 1 0
+                    transparency 0.5
+                    roughness 1
+                  }
+                  geometry Cone {
+                    bottomRadius 0.05
+                    height 0.1
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(9)"
+        }
+        DEF ultrazvukR Solid {
+          translation -0.22 -0.24 0
+          rotation 0 0 -1 1.5708
+          children [
+            Lidar {
+              name "distR"
+              fieldOfView 1
+              verticalFieldOfView 0.1
+              numberOfLayers 1
+            }
+            Solid {
+              rotation 0 1 0 -1.5707953071795862
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 1 0
+                    transparency 0.5
+                    roughness 1
+                  }
+                  geometry Cone {
+                    bottomRadius 0.05
+                    height 0.1
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(10)"
+        }
+        DEF ultrazvukFR Solid {
+          translation 0.22 -0.24 0
+          rotation 0 0 1 -1.047195307179586
+          children [
+            Lidar {
+              name "distFR"
+              fieldOfView 1
+              verticalFieldOfView 0.1
+              numberOfLayers 1
+            }
+            Solid {
+              rotation 0 1 0 -1.5707953071795862
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 1 0
+                    transparency 0.5
+                    roughness 1
+                  }
+                  geometry Cone {
+                    bottomRadius 0.05
+                    height 0.1
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(12)"
+        }
+        DEF gpsko Solid {
+          translation -0.05 0 0.04
+          children [
+            GPS {
+            }
+            Shape {
+              geometry Box {
+                size 0.03 0.05 0.01
+              }
+            }
+          ]
+          name "solid(8)"
+        }
+        DEF track1 Solid {
+          translation -0.25 -0.2 0
+          rotation 1 0 0 -1.5707953071795862
+          children [
+            Solid {
+              translation 0.25 0 0
+              rotation 1 0 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.666667 0.333333 0
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.5 0.06 0.1
+                  }
+                }
+              ]
+            }
+            Solid {
+              translation 0.5 0 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.666667 0.333333 0
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.06
+                    radius 0.05
+                  }
+                }
+              ]
+              name "solid(7)"
+            }
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.666667 0.333333 0
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.06
+                radius 0.05
+              }
+            }
+          ]
+        }
+        DEF track2 Solid {
+          translation -0.25 0.2 4.07842e-07
+          rotation 1 0 0 -1.5707953071795862
+          children [
+            Solid {
+              translation 0.25 0 0
+              rotation 1 0 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.666667 0.333333 0
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.5 0.06 0.1
+                  }
+                }
+              ]
+            }
+            Solid {
+              translation 0.5 0 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.666667 0.333333 0
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.06
+                    radius 0.05
+                  }
+                }
+              ]
+              name "solid(7)"
+            }
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.666667 0.333333 0
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.06
+                radius 0.05
+              }
+            }
+          ]
+          name "solid(7)"
+        }
+        DEF kol_R1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor 0.22 -0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "mR1"
+            }
+          ]
+          endPoint DEF kol_R1_ Solid {
+            translation 0.219993 -0.200071 -3.963220000016418e-05
+            rotation 0.9999999906454144 -8.606969919328968e-05 -0.00010630699900462873 1.5707099999999354
+            children [
+              DEF wr1 Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.04
+                  radius 0.06
+                }
+              }
+            ]
+            name "solid(2)"
+            boundingObject USE wr1
+            physics DEF fyzikos Physics {
+            }
+          }
+        }
+        DEF kol_R2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor 0 -0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "mR2"
+            }
+          ]
+          endPoint DEF kol_R2_ Solid {
+            translation -7.010480915900348e-06 -0.20002661638562125 -3.5181593674396035e-05
+            rotation 0.9999999906453739 -8.60697095496218e-05 -0.00010630737173900942 1.5707059002551886
+            children [
+              DEF wr2 Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.04
+                  radius 0.06
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE wr2
+            physics DEF fyzikos Physics {
+            }
+          }
+        }
+        DEF kol_R3 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor -0.22 -0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "mR3"
+            }
+          ]
+          endPoint DEF kol_R3_ Solid {
+            translation -0.21994879546355553 -0.19983923600144549 9.527396209027695e-05
+            rotation 0.9999999911475955 -8.34223217847305e-05 -0.00010366062563802155 1.570679413666424
+            children [
+              DEF wr3 Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.04
+                  radius 0.06
+                }
+              }
+            ]
+            name "solid(3)"
+            boundingObject USE wr3
+            physics DEF fyzikos Physics {
+            }
+          }
+        }
+        DEF kol_L3 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor -0.22 0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "mL3"
+            }
+          ]
+          endPoint DEF kol_L3_ Solid {
+            translation -0.22009578976815675 0.20003297494889916 0.000160796564788682
+            rotation 0.9999999999170427 9.820512800913751e-06 8.33500469526473e-06 1.5707838682979252
+            children [
+              DEF wl3 Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.04
+                  radius 0.06
+                }
+              }
+            ]
+            name "solid(4)"
+            boundingObject USE wl3
+            physics DEF fyzikos Physics {
+            }
+          }
+        }
+        DEF kol_L2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor 0 0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "mL2"
+            }
+          ]
+          endPoint DEF kol_L2_ Solid {
+            translation -0.00011461089192712042 0.20001766426449513 0.00017020075561117315
+            rotation 0.9999999994042686 3.300761929827754e-05 -1.0097525283472559e-05 1.5707856295387324
+            children [
+              DEF wl2 Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.04
+                  radius 0.06
+                }
+              }
+            ]
+            name "solid(5)"
+            boundingObject USE wl2
+            physics DEF fyzikos Physics {
+            }
+          }
+        }
+        DEF kol_L1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor 0.22 0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "mL1"
+            }
+          ]
+          endPoint DEF kol_L1_ Solid {
+            translation 0.21947832501805117 0.20010399999999998 0.00043047483803097504
+            rotation 0.999999999780521 1.93375156017632e-05 -8.063398903819885e-06 1.5708096522159716
+            children [
+              DEF wl1 Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.04
+                  radius 0.06
+                }
+              }
+            ]
+            name "solid(6)"
+            boundingObject USE wl1
+            physics DEF fyzikos Physics {
+            }
+          }
+        }
+        DEF zakladna Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.666667 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.6 0.35 0.08
+          }
+        }
+      ]
+      boundingObject USE zakladna
+      physics USE fyzikos
+    }
+  ]
+  boundingObject USE zakladna
+  physics USE fyzikos
+  controller "robot"
+}
+Dog {
+  translation 3.11001 3.28 0
+  rotation 0 0 1 3.14159
+}
